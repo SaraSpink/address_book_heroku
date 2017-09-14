@@ -12,6 +12,7 @@ require ('pry')
   get('/contacts/:id') do
     @list = Contact.all()
     @contact_id = Contact.find(params[:id])
+    @list = Contact.all()
     erb(:contact_id)
   end
 
@@ -23,9 +24,9 @@ require ('pry')
     @state_app = params["state"]
     @zip_app = params["zip"]
     @list_app = Contact.all()
-    @list = Contact.all()
     contact_info = Contact.new({:first_name=> @first_name_app, :last_name=> @last_name_app, :address=> @address_app, :city=> @city_app, :state=> @state_app, :zip=> @zip_app})
 
     contact_info.save
+    @list = Contact.all()
     erb(:input)
-end
+  end

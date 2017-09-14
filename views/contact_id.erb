@@ -2,10 +2,8 @@
 
 <h4>Contact: </h4>
 
-<% @list.each do |item| %>
-  <h1><%= item.first_name %> <%= item.last_name %></h1>
-  <p><%= item.address %></p>
-  <p><%= item.city %>, <%= item.state %> <%= item.zip %></p>
-<% end %>
+  <h1><%= @contact_id.first_name %> <%= @contact_id.last_name %></h1>
+  <p><%= @contact_id.address %></p>
+  <p><%= @contact_id.city %>, <%= @contact_id.state %> <%= @contact_id.zip %></p>
 
 <a href='/'>Add another contact.</a>
