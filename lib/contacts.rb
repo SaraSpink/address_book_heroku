@@ -1,5 +1,6 @@
 class Contact
-  # attr_accessor :first_name, :last_name
+  @@full_contact = []
+  attr_accessor :first_name, :last_name
 
   def initialize(attribute)
     @first_name = attribute.fetch(:first_name)
@@ -16,5 +17,9 @@ class Contact
 
   def last_name
     @last_name
+  end
+
+  def save
+    @@full_contact.push(self)
   end
 end

@@ -10,9 +10,12 @@ get('/') do
 end
 
 post('/') do
-  @first_name = params.fetch["first_name"]
-  @last_name = params.fetch["last_name"]
-  contact_info = Contact.new({:first_name=> @first_name, :last_name=> @last_name})
+  @first_name_app = params["first_name"]
+  @last_name_app = params["last_name"]
 
-  erb(:output)
+  contact_info = Contact.new({:first_name=> @first_name_app, :last_name=> @last_name_app})
+  contact_info.save
+  @full_contact
+
+  erb(:input)
 end
