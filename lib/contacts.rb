@@ -1,5 +1,6 @@
 class Contact
   @@full_contact = []
+  attr_reader :id
   attr_accessor :first_name, :last_name
 
   def initialize(attribute)
@@ -9,6 +10,7 @@ class Contact
   #   @city = :city
   #   @state = :state
   #   @zip = :zip
+    @id = @@full_contact.length + 1
   end
 
   def first_name
@@ -21,5 +23,26 @@ class Contact
 
   def save
     @@full_contact.push(self)
+  end
+
+  def self.all()
+    @@full_contact
+  end
+
+  def self.sort
+    @@full_contact.sort_by! {|contact_id| contact_id.last_name}
+  end
+
+  def self.find(id)
+     item_id = id.to_i()
+     @@full_contact.each do |item|
+       if item.id == item_id
+         return item
+       end
+     end
+   end
+
+  def self.clear()
+    @@full_contact = []
   end
 end

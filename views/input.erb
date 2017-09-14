@@ -16,4 +16,6 @@
   <button type="submit" class="btn btn-info">Submit</button>
 </form>
 
-<h1><%= @first_name_app %> <%= @last_name_app %></h1>
+<% @list.each do |item| %>
+  <h1><a href="/contacts/<%= item.id %>"><%= item.first_name %> <%= item.last_name %></a></h1>
+<% end %>
