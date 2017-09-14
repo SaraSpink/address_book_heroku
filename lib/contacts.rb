@@ -1,15 +1,15 @@
 class Contact
   @@full_contact = []
   attr_reader :id
-  attr_accessor :first_name, :last_name
+  attr_accessor :first_name, :last_name, :address, :city, :state, :zip
 
   def initialize(attribute)
     @first_name = attribute.fetch(:first_name)
     @last_name = attribute.fetch(:last_name)
-  #   @address = :address
-  #   @city = :city
-  #   @state = :state
-  #   @zip = :zip
+    @address = attribute.fetch(:address)
+    @city = attribute.fetch(:city)
+    @state = attribute.fetch(:state)
+    @zip = attribute.fetch(:zip)
     @id = @@full_contact.length + 1
   end
 

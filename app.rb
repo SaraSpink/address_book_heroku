@@ -10,18 +10,22 @@ require ('pry')
   end
 
   get('/contacts/:id') do
+    @list = Contact.all()
     @contact_id = Contact.find(params[:id])
     erb(:contact_id)
   end
 
-post('/') do
-  @first_name_app = params["first_name"]
-  @last_name_app = params["last_name"]
-  @list = Contact.all()
+  post('/') do
+    @first_name_app = params["first_name"]
+    @last_name_app = params["last_name"]
+    @address_app = params["address"]
+    @city_app = params["city"]
+    @state_app = params["state"]
+    @zip_app = params["zip"]
+    @list_app = Contact.all()
+    @list = Contact.all()
+    contact_info = Contact.new({:first_name=> @first_name_app, :last_name=> @last_name_app, :address=> @address_app, :city=> @city_app, :state=> @state_app, :zip=> @zip_app})
 
-  contact_info = Contact.new({:first_name=> @first_name_app, :last_name=> @last_name_app})
-  contact_info.save
-
-
-  erb(:input)
+    contact_info.save
+    erb(:input)
 end
